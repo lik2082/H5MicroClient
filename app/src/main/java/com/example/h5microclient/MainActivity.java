@@ -34,7 +34,7 @@ import ren.yale.android.cachewebviewlib.WebViewCacheInterceptorInst;
 public class MainActivity extends AppCompatActivity implements NetStateReceiver.NetworkObserver {
 
     WebView mWebView;
-	final String GAME_URL = "https://www.baidu.com";
+	final String GAME_URL = "http://111.230.233.236/civ/";
     final String INDEX_URL = "file:///android_asset/index.html";
     final String ERROR_URL = "file:///android_asset/error.html";
 
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NetStateReceiver.
                             IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
                             registerReceiver(receiver, filter);
                         }
-                    }, 1500);
+                    }, 10);
                 }
             }
 
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements NetStateReceiver.
         }
         isShowErrorPage = true;
         LogUtil.d("--------- show error page");
-        WebViewCacheInterceptorInst.getInstance().loadUrl(mWebView, ERROR_URL);
+        //WebViewCacheInterceptorInst.getInstance().loadUrl(mWebView, ERROR_URL);
     }
 
     // 网络连接成功才访问游戏主页
